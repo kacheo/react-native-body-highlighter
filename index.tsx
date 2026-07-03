@@ -183,9 +183,9 @@ const Body = ({
               <Path
                 key={path}
                 onPress={
-                  isPartDisabled(bodyPart.slug)
+                  isPartDisabled(bodyPart.slug) || !onBodyPartPress
                     ? undefined
-                    : () => onBodyPartPress?.(bodyPart)
+                    : () => onBodyPartPress(bodyPart)
                 }
                 aria-disabled={isPartDisabled(bodyPart.slug)}
                 id={bodyPart.slug}
@@ -207,9 +207,9 @@ const Body = ({
               <Path
                 key={path}
                 onPress={
-                  isPartDisabled(bodyPart.slug)
+                  isPartDisabled(bodyPart.slug) || !onBodyPartPress
                     ? undefined
-                    : () => onBodyPartPress?.(bodyPart, "left")
+                    : () => onBodyPartPress(bodyPart, "left")
                 }
                 id={bodyPart.slug}
                 fill={fillColor ?? partStyles.fill}
@@ -229,9 +229,9 @@ const Body = ({
               <Path
                 key={path}
                 onPress={
-                  isPartDisabled(bodyPart.slug)
+                  isPartDisabled(bodyPart.slug) || !onBodyPartPress
                     ? undefined
-                    : () => onBodyPartPress?.(bodyPart, "right")
+                    : () => onBodyPartPress(bodyPart, "right")
                 }
                 id={bodyPart.slug}
                 fill={fillColor ?? partStyles.fill}
